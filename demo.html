@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>99 trip</title>
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="new.js" ></script>
+</head>
+<body>
+
+    <div class="navigation-container">
+
+        <div class="nav-left">
+            <img src="images/1.png" alt="" height="100" width="30">
+        </div>
+
+        <div class="nav-middle">
+            <div class="nav-middle-1">
+                <img src="images/2.png"alt="">
+                <p>Flight</p>
+            </div>
+            <div class="nav-middle-1">
+                <img src="images/3.png" alt="">
+                <p>Hotel</p>
+            </div>
+            <div class="nav-middle-1">
+                <img src="images/4.png" alt="">
+                <p>Bus</p>
+            </div>
+            <div class="nav-middle-1">
+                <img src="images/5.png" alt="">
+                <p>Tour</p>
+            </div>
+            <div class="nav-middle-1">
+                <img src="images/6 (2).png" alt="">
+                <p>Visa</p>          
+              </div>
+        </div>
+
+        <div class="nav-right">
+            <div class="dropdown">
+                <button id="bt-black" class="dropbtn" onclick="toggleDropdown(event)">Support<i class="fa-solid fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="#">1234</a>
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+     
+        
+        <div class="dropdown">
+        <button id="bt-color" onclick="toggleDropdown(event)"> <i class="fa-solid fa-ballot"></i>My Trip <i class="fa-solid fa-caret-down"></i></button>
+            <div class="dropdown-content">
+                <a href="#">Login</a>
+                <a href="#">Register</a>
+                <a href="#">Fetch Bookings</a>
+            </div>
+        </div>
+    
+    
+        <div class="dropdown">
+            <button id="bt-color"><i class="fa-solid fa-user"></i> Travel Agent </button>
+            <div class="dropdown-content">   
+           </div>
+       </div> 
+    </div>
+
+    <!-- BOOKING  -->
+    
+     <div class="container">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="from">From</label>
+                <!-- <input type="text" id="from"  value="Delhi, Delhi Airport India" readonly> -->
+                <select id="from"class="dropdown">
+                    <option value="Delhi, Delhi Airport India">Delhi, Delhi Airport India</option>
+                    <option value="Mumbai, Chhatrapati Shivaji Intl India">Mumbai, Chhatrapati Shivaji Intl India</option>
+                    <option value="Kolkata, Netaji Subhash Chandra Bose Intl India">Kolkata, Netaji Subhash Chandra Bose Intl India</option>
+                    <option value="Chennai, Chennai Intl India">Chennai, Chennai Intl India</option>
+                    <option value="Hyderabad, Rajiv Gandhi Intl India">Hyderabad, Rajiv Gandhi Intl India</option>
+                </select> 
+            </div>
+            <div class="form-group">
+                <label for="to">To</label>
+                <!-- <input type="text" id="to" value="Bengaluru, Bengaluru Intl India" readonly> -->
+                    <select id="to" class="dropdown">
+                        <option value="Bengaluru, Bengaluru Intl India">Bengaluru, Bengaluru Intl India</option>
+                        <option value="Pune, Pune Intl India">Pune, Pune Intl India</option>
+                        <option value="Ahmedabad, Sardar Vallabhbhai Patel Intl India">Ahmedabad, Sardar Vallabhbhai Patel Intl India</option>
+                        <option value="Goa, Goa Intl India">Goa, Goa Intl India</option>
+                        <option value="Kochi, Cochin Intl India">Kochi, Cochin Intl India</option>
+                    </select>
+                </div>
+           
+            <div class="form-group">
+                <label for="depart">Depart</label>
+                <input type="date" id="depart" value="2024-06-14">
+            </div>
+            <div class="form-group">
+                <label for="fare-type">Fare Type</label>
+                <select id="fare-type">
+                    <option value="regular">Regular</option>
+                    <option value="student">Student</option>
+                    <option value="senior">Senior Citizen</option>
+                    <option value="army">Army</option>
+                </select>
+            </div>
+            <div class="form-group" id="travel">
+                <label for="travellers">Travellers</label>
+                <!-- <input type="number" id="travellers" value="1" min="1"> -->
+                 <input type="text" id="travellers" value="" min="1"> 
+            <!-- </div> -->
+            <div class="travellers-container">
+                <!-- <span>TRAVELLERS</span> -->
+                 <option value="travellers"> <span>travellers</span></option>
+                <div class="travellers-table">
+                    <table>
+                        <tr>
+                            <th>Type</th>
+                            <th>Decrease</th>
+                            <th>Count</th>
+                            <th>Increase</th>
+                        </tr>
+                        <tr>
+                            <td>Adults (12+):</td>
+                            <td><button onclick="changeCount('adults', -1)">-</button></td>
+                            <td><span id="adults-count">1</span></td>
+                            <td><button onclick="changeCount('adults', 1)">+</button></td>
+                        </tr>
+                        <tr>
+                            <td>Childs (2-12 Years):</td>
+                            <td><button onclick="changeCount('children', -1)">-</button></td>
+                            <td><span id="children-count">0</span></td>
+                            <td><button onclick="changeCount('children', 1)">+</button></td>
+                        </tr>
+                        <tr>
+                            <td>Infants (0-23 months):</td>
+                            <td><button onclick="changeCount('infants', -1)">-</button></td>
+                            <td><span id="infants-count">0</span></td>
+                            <td><button onclick="changeCount('infants', 1)">+</button></td>
+                        </tr>
+                    </table>
+                    <button class="apply-btn" onclick="applyChanges()">APPLY</button>
+                </div>
+            </div>
+        </div>
+
+            <div class="form-group">
+                <label for="class">Class</label>
+                <select id="class">
+                    <option value="all">All</option>
+                    <option value="economy">Economy</option>
+                    <option value="business">Business</option>
+                    <option value="first">First</option>
+                </select>
+            </div>
+        </div>
+        <button onclick="searchFlights()">Search</button> 
+    </div>
+
+
+    <section class="packages" id="packages">
+
+        <h1 class="heading">
+            <span>p</span>
+            <span>a</span>
+            <span>c</span>
+            <span>k</span>
+            <span>a</span>
+            <span>g</span>
+            <span>e</span>
+            <span>s</span>
+        </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="assets/p-1.jpg" alt="">
+                <div class="content">
+                    <h3><i class="fas fa-map-marker-alt"></i>mumbai</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, rerum.</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="price"> ₹5000 <span>₹6000</span></div>
+                    <a href="#" class="btn">book now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="assets/p-2.jpg" alt="">
+                <div class="content">
+                    <h3><i class="fas fa-map-marker-alt"></i>Hawaii</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, rerum.</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="price"> ₹5000 <span>₹6000</span></div>
+                    <a href="#" class="btn">book now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="assets/p-3.jpg" alt="">
+                <div class="content">
+                    <h3><i class="fas fa-map-marker-alt"></i>Sydney</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, rerum.</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="price"> ₹5000 <span>₹6000</span></div>
+                    <a href="#" class="btn">book now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="assets/p-4.jpg" alt="">
+                <div class="content">
+                    <h3><i class="fas fa-map-marker-alt"></i>Paris</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, rerum.</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="price"> ₹5000 <span>₹6000</span></div>
+                    <a href="#" class="btn">book now</a>
+                </div>
+            </div>
+            
+            <div class="box">
+                <img src="assets/p-5.jpg" alt="">
+                <div class="content">
+                    <h3><i class="fas fa-map-marker-alt"></i>Tokyo</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, rerum.</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="price"> ₹5000 <span>₹6000</span></div>
+                    <a href="#" class="btn">book now</a>
+                </div>
+            </div>
+
+            <!-- <div class="box">
+                <img src="assets/M4.jpg" alt="">
+                <div class="content">
+                    <h3><i class="fas fa-map-marker-alt"></i>Mysore</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, rerum.</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="price"> ₹5000 <span>₹6000</span></div>
+                    <a href="#" class="btn">book now</a>
+                </div>
+            </div> -->
+            
+        </div>
+
+    </section>
+</body>
+</html>
